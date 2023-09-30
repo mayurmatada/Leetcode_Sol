@@ -12,20 +12,18 @@ class Solution:
         i = 0
         j = len(nums)-1
         flag = False
-        nums.sort()
+        cpy = nums.copy()
+        cpy.sort()
         while(flag == False):
             if(nums[i] + nums[j] < target):
                 i = i+1
             elif(nums[i] + nums[j] > target):
                 j = j-1
-            elif(nums[i] + nums[j]  == target):
-                result.append(i)
-                result.append(j)
-                flag = True
-            
+            if(nums[i] + nums[j]  == target):
+                result.append(nums.index(cpy[i]))
+                result.append(nums.index(cpy[j]))
         return result
-            
 
-        
+
 # @lc code=end
 
